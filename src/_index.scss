@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+$font-sizes: (8, 10, 14, 16, 24) !default;
+$helpers-font-sizes-class-prefix: 'fnt-s' !default;
+
+@mixin helpers-font-sizes($responsive : false) {
+  
+  @if $responsive {
+    
+    @each $font in $font-sizes {
+      $key: nth($font, 1);
+      $font-size: nth($font, 2);
+      
+      @each $classname in $breakpoint-classes {
+        
+        @include breakpoint($classname) {
+          
+          .#{$classname}-#{$helpers-font-sizes-class-prefix}-#{$key} {
+            font-size: rem-calc($font-size) !important;
+          }
+        }
+      }
+    }
+    
+  } @else {
+    
+    @each $font in $font-sizes {
+      $key: nth($font, 1);
+      $font-size: nth($font, 2);
+      
+      .#{$helpers-font-sizes-class-prefix}-#{$key} {
+        font-size: rem-calc($font-size) !important;
+      }
+      
+    }
+  }
+}
