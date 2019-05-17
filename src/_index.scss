@@ -1,21 +1,19 @@
 @charset "UTF-8";
 
-$font-sizes: (8, 10, 14, 16, 24) !default;
+$font-sizes: (8 10 14 16 24) !default;
 $helpers-font-sizes-class-prefix: 'fnt-s' !default;
 
 @mixin helpers-font-sizes($responsive : false) {
   
   @if $responsive {
     
-    @each $font in $font-sizes {
-      $key: nth($font, 1);
-      $font-size: nth($font, 2);
+    @each $font-size in $font-sizes {
       
       @each $classname in $breakpoint-classes {
         
         @include breakpoint($classname) {
           
-          .#{$classname}-#{$helpers-font-sizes-class-prefix}-#{$key} {
+          .#{$classname}-#{$helpers-font-sizes-class-prefix}-#{$font-size} {
             font-size: rem-calc($font-size) !important;
           }
         }
@@ -24,11 +22,9 @@ $helpers-font-sizes-class-prefix: 'fnt-s' !default;
     
   } @else {
     
-    @each $font in $font-sizes {
-      $key: nth($font, 1);
-      $font-size: nth($font, 2);
+    @each $font-size in $font-sizes {
       
-      .#{$helpers-font-sizes-class-prefix}-#{$key} {
+      .#{$helpers-font-sizes-class-prefix}-#{$font-size} {
         font-size: rem-calc($font-size) !important;
       }
       
