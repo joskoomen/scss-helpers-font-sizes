@@ -1,6 +1,6 @@
 {
     "name": "@joskoomen/scss-helpers-font-sizes",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Front-end Helpers Package for Font sizes",
     "main": "src/_index.scss",
     "author": "Jos Koomen <hello@joskoo.men>",

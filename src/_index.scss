@@ -4,30 +4,21 @@ $font-sizes: (8 10 14 16 24) !default;
 $helpers-font-sizes-class-prefix: 'fnt-s' !default;
 
 @mixin helpers-font-sizes($responsive : false) {
-  
   @if $responsive {
-    
-    @each $font-size in $font-sizes {
-      
-      @each $classname in $breakpoint-classes {
-        
-        @include breakpoint($classname) {
-          
+    @each $classname in $breakpoint-classes {
+      @include breakpoint($classname) {
+        @each $font-size in $font-sizes {
           .#{$classname}-#{$helpers-font-sizes-class-prefix}-#{$font-size} {
             font-size: rem-calc($font-size) !important;
           }
         }
       }
     }
-    
   } @else {
-    
     @each $font-size in $font-sizes {
-      
       .#{$helpers-font-sizes-class-prefix}-#{$font-size} {
         font-size: rem-calc($font-size) !important;
       }
-      
     }
   }
 }
